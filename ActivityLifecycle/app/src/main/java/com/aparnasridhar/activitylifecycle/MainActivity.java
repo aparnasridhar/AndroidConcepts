@@ -1,5 +1,6 @@
 package com.aparnasridhar.activitylifecycle;
 
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -46,5 +47,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
         Log.d("Activity Lifecyle","On Re-Start");
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE){
+            Log.d("Orientation","In Landscape Mode");
+        }else{
+            Log.d("Orientation","In Potrait Mode");
+        }
     }
 }
